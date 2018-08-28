@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AnalysisConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <SonarConfigDir>C:\Users\akaxb\source\repos\MicroServices\.sonarqube\conf</SonarConfigDir>
+  <SonarOutputDir>C:\Users\akaxb\source\repos\MicroServices\.sonarqube\out</SonarOutputDir>
+  <SonarBinDir>C:\Users\akaxb\source\repos\MicroServices\.sonarqube\bin</SonarBinDir>
+  <SonarScannerWorkingDirectory>C:\Users\akaxb\source\repos\MicroServices</SonarScannerWorkingDirectory>
+  <HasBeginStepCommandLineCredentials>false</HasBeginStepCommandLineCredentials>
+  <SonarQubeHostUrl>http://192.168.0.105:9000</SonarQubeHostUrl>
+  <SonarQubeVersion>7.1.0.11001</SonarQubeVersion>
+  <SonarProjectKey>NetCoreMicroService</SonarProjectKey>
+  <SonarProjectVersion>1.0</SonarProjectVersion>
+  <AdditionalConfig>
+    <ConfigSetting Id="BuildUri" />
+    <ConfigSetting Id="TfsUri" />
+    <ConfigSetting Id="settings.file.path" Value="D:\sonar_dotnetcore\SonarQube.Analysis.xml" />
+  </AdditionalConfig>
+  <ServerSettings>
+    <Property Name="sonar.gitlab.max_global_issues">10</Property>
+    <Property Name="sonaranalyzer-cs.nuget.packageVersion">7.0.1.4822</Property>
+    <Property Name="sonar.gitlab.query_max_retry">50</Property>
+    <Property Name="sonar.editions.jsonUrl">https://update.sonarsource.org/editions.json</Property>
+    <Property Name="sonar.cs.ignoreHeaderComments">true</Property>
+    <Property Name="sonar.typescript.file.suffixes">.ts,.tsx</Property>
+    <Property Name="sonar.javascript.jQueryObjectAliases">$, jQuery</Property>
+    <Property Name="sonar.gitlab.load_rules">false</Property>
+    <Property Name="email.fromName">SonarQube</Property>
+    <Property Name="sonar.python.xunit.skipDetails">false</Property>
+    <Property Name="sonar.dbcleaner.weeksBeforeKeepingOnlyAnalysesWithVersion">104</Property>
+    <Property Name="sonar.forceAuthentication">false</Property>
+    <Property Name="sonar.gitlab.unique_issue_per_inline">false</Property>
+    <Property Name="sonar.gitlab.only_issue_from_commit_file">false</Property>
+    <Property Name="sonar.notifications.delay">60</Property>
+    <Property Name="sonar.flex.file.suffixes">as</Property>
+    <Property Name="sonar.gitlab.build_init_state">pending</Property>
+    <Property Name="sonar.gitlab.issue_filter">INFO</Property>
+    <Property Name="sonar.gitlab.max_minor_issues_gate">-1</Property>
+    <Property Name="sonar.gitlab.max_major_issues_gate">-1</Property>
+    <Property Name="sonaranalyzer-cs.ruleNamespace">SonarAnalyzer.CSharp</Property>
+    <Property Name="sonar.gitlab.max_info_issues_gate">-1</Property>
+    <Property Name="sonar.python.xunit.reportPath">xunit-reports/xunit-result-*.xml</Property>
+    <Property Name="sonar.builtInQualityProfiles.disableNotificationOnUpdate">false</Property>
+    <Property Name="sonar.javascript.globals">angular,goog,google,OpenLayers,d3,dojo,dojox,dijit,Backbone,moment,casper</Property>
+    <Property Name="sonar.dbcleaner.hoursBeforeKeepingOnlyOneSnapshotByDay">24</Property>
+    <Property Name="sonar.gitlab.ignore_certificate">false</Property>
+    <Property Name="sonar.javascript.exclusions">**/node_modules/**,**/bower_components/**</Property>
+    <Property Name="sonar.java.failOnException">false</Property>
+    <Property Name="sonar.organizations.createPersonalOrg">false</Property>
+    <Property Name="sonar.dbcleaner.cleanDirectory">true</Property>
+    <Property Name="sonar.onboardingTutorial.showToNewUsers">false</Property>
+    <Property Name="sonar.jacoco.reportPaths">target/jacoco.exec, target/jacoco-it.exec</Property>
+    <Property Name="sonar.cpd.cross_project">false</Property>
+    <Property Name="email.from">noreply@nowhere</Property>
+    <Property Name="sonar.typescript.node">node</Property>
+    <Property Name="sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByWeek">4</Property>
+    <Property Name="sonar.leak.period">previous_version</Property>
+    <Property Name="email.prefix">SONARQUBE</Property>
+    <Property Name="sonar.gitlab.comment_no_issue">false</Property>
+    <Property Name="sonaranalyzer-cs.pluginKey">csharp</Property>
+    <Property Name="sonar.gitlab.max_blocker_issues_gate">0</Property>
+    <Property Name="sonar.gitlab.quality_gate_fail_mode">ERROR</Property>
+    <Property Name="sonar.javascript.ignoreHeaderComments">true</Property>
+    <Property Name="sonar.dbcleaner.daysBeforeDeletingClosedIssues">30</Property>
+    <Property Name="sonar.gitlab.only_issue_from_commit_line">false</Property>
+    <Property Name="sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByMonth">52</Property>
+    <Property Name="sonar.lf.gravatarServerUrl">https://secure.gravatar.com/avatar/{EMAIL_MD5}.jpg?s={SIZE}&amp;d=identicon</Property>
+    <Property Name="sonar.gitlab.api_version">v4</Property>
+    <Property Name="sonar.gitlab.url">https://gitlab.com</Property>
+    <Property Name="sonar.gitlab.all_issues">false</Property>
+    <Property Name="sonar.gitlab.disable_inline_comments">false</Property>
+    <Property Name="sonaranalyzer-cs.staticResourceName">SonarAnalyzer-7.0.1.4822.zip</Property>
+    <Property Name="sonar.notifications.runningDelayBeforeReportingStatus">600</Property>
+    <Property Name="sonaranalyzer-cs.nuget.packageId">SonarAnalyzer.CSharp</Property>
+    <Property Name="sonar.javascript.environments">amd, applescript, atomtest, browser, commonjs, couch, embertest, flow, greasemonkey, jasmine, jest, jquery, meteor, mocha, mongo, nashorn, node, phantomjs, prototypejs, protractor, qunit, rhino, serviceworker, shared-node-browser, shelljs, webextensions, worker, wsh, yui</Property>
+    <Property Name="sonar.authenticator.downcase">false</Property>
+    <Property Name="sonar.scm.disabled">false</Property>
+    <Property Name="sonar.python.coverage.reportPath">coverage-reports/*coverage-*.xml</Property>
+    <Property Name="sonar.gitlab.query_wait">1000</Property>
+    <Property Name="sonar.gitlab.json_mode">NONE</Property>
+    <Property Name="sonar.gitlab.max_critical_issues_gate">0</Property>
+    <Property Name="sonar.typescript.exclusions">**/node_modules/**,**/bower_components/**</Property>
+    <Property Name="sonaranalyzer-cs.analyzerId">SonarAnalyzer.CSharp</Property>
+    <Property Name="sonar.organizations.anyoneCanCreate">false</Property>
+    <Property Name="sonar.technicalDebt.ratingGrid">0.05,0.1,0.2,0.5</Property>
+    <Property Name="sonar.technicalDebt.developmentCost">30</Property>
+    <Property Name="sonar.lf.enableGravatar">false</Property>
+    <Property Name="sonar.preview.excludePlugins">devcockpit,pdfreport,governance,ldap,authaad,authgithub,authbitbucket,googleanalytics</Property>
+    <Property Name="sonaranalyzer-cs.pluginVersion">7.0.1.4822</Property>
+    <Property Name="sonar.python.file.suffixes">py</Property>
+    <Property Name="sonar.cs.file.suffixes">.cs</Property>
+    <Property Name="sonar.javascript.file.suffixes">.js,.jsx,.vue</Property>
+    <Property Name="sonar.java.file.suffixes">.java,.jav</Property>
+    <Property Name="sonar.php.file.suffixes">php,php3,php4,php5,phtml,inc</Property>
+    <Property Name="sonar.xml.file.suffixes">.xml,.xsd,.xsl</Property>
+    <Property Name="sonar.dbcleaner.weeksBeforeDeletingAllSnapshots">260</Property>
+    <Property Name="sonar.java.collectAnalysisErrors">false</Property>
+    <Property Name="sonar.gitlab.failure_notification_mode">commit-status</Property>
+    <Property Name="sonar.updatecenter.url">https://update.sonarsource.org/update-center.properties</Property>
+    <Property Name="sonar.gitlab.ping_user">false</Property>
+    <Property Name="sonar.gitlab.disable_global_comment">false</Property>
+    <Property Name="sonar.core.id">AWVfNWRvk257OQsTqTKb</Property>
+    <Property Name="sonar.core.startTime">2018/8/23 17:56:48</Property>
+  </ServerSettings>
+  <LocalSettings />
+  <AnalyzersSettings>
+    <AnalyzerSettings>
+      <Language>cs</Language>
+      <RuleSetFilePath>C:\Users\akaxb\source\repos\MicroServices\.sonarqube\conf\SonarQubeRoslyn-cs.ruleset</RuleSetFilePath>
+      <AnalyzerAssemblyPaths>
+        <Path>C:\Users\akaxb\AppData\Local\Temp\.sonarqube\resources\0\Google.Protobuf.dll</Path>
+        <Path>C:\Users\akaxb\AppData\Local\Temp\.sonarqube\resources\0\SonarAnalyzer.CSharp.dll</Path>
+        <Path>C:\Users\akaxb\AppData\Local\Temp\.sonarqube\resources\0\SonarAnalyzer.dll</Path>
+      </AnalyzerAssemblyPaths>
+      <AdditionalFilePaths>
+        <Path>C:\Users\akaxb\source\repos\MicroServices\.sonarqube\conf\cs\SonarLint.xml</Path>
+      </AdditionalFilePaths>
+    </AnalyzerSettings>
+  </AnalyzersSettings>
+</AnalysisConfig>

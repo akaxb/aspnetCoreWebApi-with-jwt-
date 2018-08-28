@@ -36,7 +36,7 @@ namespace User.API.Controllers
             {
                 return BadRequest();
             }
-            var user = await _repository.SinleAsync(a => a.Name == login.UserName && a.Phone == login.Phone);
+            var user = await _repository.SingleAsync(a => a.Name == login.UserName && a.Phone == login.Phone);
             if (user == null)
             {
                 return BadRequest();

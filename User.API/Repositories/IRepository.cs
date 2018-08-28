@@ -17,7 +17,7 @@ namespace User.API.Repositories
 
         Task<TEntity> FindByIdAsync(TKey id);
 
-        Task<TEntity> SinleAsync(Expression<Func<TEntity, bool>> expression = null);
+        Task<TEntity> SingleAsync(Expression<Func<TEntity, bool>> expression = null);
 
         IQueryable<TEntity> GetAllList(Expression<Func<TEntity, bool>> predicate = null);
 

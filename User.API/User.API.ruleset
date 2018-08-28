@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="SonarQube - NetCoreMicroService Sonar way" ToolsVersion="15.0">
+  <Include Path="..\.sonarlint\netcoremicroservicecsharp.ruleset" Action="Default" />
+  <Include Path="user.api.ruleset" Action="Default" />
+</RuleSet>

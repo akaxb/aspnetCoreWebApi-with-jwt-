@@ -1,0 +1,14 @@
+c
+ZC:\Users\akaxb\source\repos\MicroServices\User.Identity\Authentication\SmsCodeValidator.csutf-8J
+AC:\Users\akaxb\source\repos\MicroServices\User.Identity\Config.csutf-8`
+WC:\Users\akaxb\source\repos\MicroServices\User.Identity\Controllers\ValuesController.csutf-8U
+LC:\Users\akaxb\source\repos\MicroServices\User.Identity\Dto\ConsulOptions.csutf-8S
+JC:\Users\akaxb\source\repos\MicroServices\User.Identity\Dto\DnsEndpoint.csutf-8_
+VC:\Users\akaxb\source\repos\MicroServices\User.Identity\Dto\ServiceDiscoveryOptions.csutf-8j
+aC:\Users\akaxb\source\repos\MicroServices\User.Identity\Infrastructure\ResilienceClientFactory.csutf-8K
+BC:\Users\akaxb\source\repos\MicroServices\User.Identity\Program.csutf-8\
+SC:\Users\akaxb\source\repos\MicroServices\User.Identity\Services\AuthCodeService.csutf-8]
+TC:\Users\akaxb\source\repos\MicroServices\User.Identity\Services\IAuthCodeService.csutf-8Y
+PC:\Users\akaxb\source\repos\MicroServices\User.Identity\Services\IUserService.csutf-8X
+OC:\Users\akaxb\source\repos\MicroServices\User.Identity\Services\UserService.csutf-8K
+BC:\Users\akaxb\source\repos\MicroServices\User.Identity\Startup.csutf-8

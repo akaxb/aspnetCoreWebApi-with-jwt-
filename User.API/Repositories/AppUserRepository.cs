@@ -61,7 +61,7 @@ namespace User.API.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<AppUser> SinleAsync(Expression<Func<AppUser, bool>> expression = null)
+        public async Task<AppUser> SingleAsync(Expression<Func<AppUser, bool>> expression = null)
         {
             var appUser = _context.AppUsers.FirstOrDefault(expression);
             return await Task.FromResult(appUser);

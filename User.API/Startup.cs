@@ -18,6 +18,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using User.API.Jwt;
+using User.API.Dtos;
+using Consul;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Hosting.Server.Features;
 
 namespace User.API
 {
@@ -51,15 +55,30 @@ namespace User.API
             #region add jwt Authentication
             if (bool.Parse(Configuration["JwtAuthentication:IsEnabled"]))
             {
-                JwtAuthConfigurer.Configure(services,Configuration);
+                JwtAuthConfigurer.Configure(services, Configuration);
             }
             #endregion
             //add user repository
             services.AddScoped<IRepository<AppUser, int>, AppUserRepository>();
+
+            //Consul
+            services.Configure<ServiceDiscoveryOptions>(Configuration.GetSection("ServiceDiscovery"));
+            services.AddSingleton<IConsulClient>(p => new ConsulClient(cfg =>
+            {
+                var serviceConfiguration = p.GetRequiredService<IOptions<ServiceDiscoveryOptions>>().Value;
+                if (!string.IsNullOrEmpty(serviceConfiguration.Consul.HttpEndpoint))
+                {
+                    // if not configured, the client will use the default value "127.0.0.1:8500"
+                    cfg.Address = new Uri(serviceConfiguration.Consul.HttpEndpoint);
+                }
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory, IHostingEnvironment env,
+            IApplicationLifetime applicationLifetime,
+            IOptions<ServiceDiscoveryOptions> serviceOptions,
+            IConsulClient consul)
         {
             if (env.IsDevelopment())
             {
@@ -75,7 +94,48 @@ namespace User.API
             });
             app.UseAuthentication();
             app.UseMvc();
+            applicationLifetime.ApplicationStarted.Register(() =>
+            {
+                RegisterService(app, serviceOptions, consul, applicationLifetime);
+            });
             AppUserContextSeed.SeedAsync(app, loggerFactory).Wait();
+        }
+
+        private void RegisterService(IApplicationBuilder app,
+            IOptions<ServiceDiscoveryOptions> serviceOptions,
+            IConsulClient consul,
+            IApplicationLifetime appLife)
+        {
+            var features = app.Properties["server.Features"] as FeatureCollection;
+            var addresses = features.Get<IServerAddressesFeature>()
+                .Addresses
+                .Select(p => new Uri(p));
+
+            foreach (var address in addresses)
+            {
+                var serviceId = $"{serviceOptions.Value.ServiceName}_{address.Host}:{address.Port}";
+
+                var httpCheck = new AgentServiceCheck()
+                {
+                    DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1),
+                    Interval = TimeSpan.FromSeconds(30),
+                    HTTP = new Uri(address, "HealthCheck").OriginalString
+                };
+
+                var registration = new AgentServiceRegistration()
+                {
+                    Checks = new[] { httpCheck },
+                    Address = address.Host,
+                    ID = serviceId,
+                    Name = serviceOptions.Value.ServiceName,
+                    Port = address.Port
+                };
+                consul.Agent.ServiceRegister(registration).GetAwaiter().GetResult();
+                appLife.ApplicationStopping.Register(() =>
+                {
+                    consul.Agent.ServiceDeregister(serviceId).GetAwaiter().GetResult();
+                });
+            }
         }
     }
 }

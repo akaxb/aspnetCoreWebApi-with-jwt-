@@ -7,10 +7,10 @@ using User.API.Data;
 using User.API.Models;
 using User.API.Repositories;
 using Microsoft.AspNetCore.Authorization;
+using System.Net.Http;
 
 namespace User.API.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     public class AppUserController : Controller
     {
@@ -72,9 +72,26 @@ namespace User.API.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task Delete(int id)
         {
             await _repository.DeleteAsync(id);
+        }
+
+        [Route("check-or-create")]
+        [HttpPost]
+        public async Task<IActionResult> CheckOrCreate(string phone)
+        {
+           // throw new  HttpRequestException("error");
+            var user = await _repository.SingleAsync(a => a.Phone == phone);
+            if (user==null)
+            {
+                user = new AppUser {
+                    Phone=phone
+                };
+                await _repository.CreateAsync(user);
+            }
+            return Ok(user.Id);
         }
     }
 }
